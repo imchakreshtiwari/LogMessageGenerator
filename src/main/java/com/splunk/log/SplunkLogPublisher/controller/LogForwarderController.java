@@ -14,27 +14,27 @@ public class LogForwarderController {
     @GetMapping("/info")
     public String getInfo() {
         logger.info("INFO: Fetching alerting health-rule information.");
-        return "Health Rule information fetched successfully.";
+        return "Health Rule information fetched successfully By Alerting.";
     }
 
     @GetMapping("/warning")
     public String getWarning() {
 
-        logger.warn("WARNING: Testing Random value logic.");
+        logger.warn("WARNING: Testing Random value logic of Alerting");
         int randomValue = (int) (Math.random() * 100);
         if (randomValue < 30) {
-            logger.warn("WARNING: Random value is low: {}", randomValue);
+            logger.warn("WARNING: Alerting Random value is low: {}", randomValue);
         }
-        return "Random logic executed, check logs for warnings.";
+        return "Random logic executed by Alerting, check logs for warnings.";
     }
 
     @GetMapping("/error")
     public String getError() {
         try {
-            throw new RuntimeException("Simulated error occurred!");
+            throw new RuntimeException("Simulated error occurred in alerting !");
         } catch (RuntimeException e) {
-            logger.error("ERROR: An error occurred while fetching Health rules: {}", e.getMessage());
-            return "An error occurred, check logs for details.";
+            logger.error("ERROR: An error occurred while fetching Health rules of Alerting: {}", e.getMessage());
+            return "An error occurred in Alerting, check logs for details.";
         }
     }
 
